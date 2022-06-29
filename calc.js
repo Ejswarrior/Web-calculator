@@ -14,23 +14,26 @@ function numEvent(buttonNum, numb){
     document.querySelector('.'+ buttonNum).addEventListener('click', function(){
         if(whichSide == 1){
         displayTotal += numb;
-        document.querySelector('.total').textContent = displayTotal;
+        document.querySelector('.total').textContent = displayTotal
         }
         else if(whichSide == 2){
-            displayTotal2 += numb;
-            document.querySelector('.total').textContent = displayTotal2;
-            document.querySelector('.total').textContent = displayTotal + " " + oper + " " + displayTotal2;
+        displayTotal2 += numb;
+        document.querySelector('.total').textContent = document.querySelector('.total').textContent + numb;
+        console.log(displayTotal2)
         }
         })
+    
+    
 }
 function operatorEvent(buttonOper, opNum, oper){
-document.querySelector("." + buttonOper).addEventListener('click', function(){
-    whichSide = 2;
-    operatorSelect = opNum;
-    document.querySelector('.total').textContent = displayTotal + " " + oper + " ";
+    document.querySelector("." + buttonOper).addEventListener('click', function(){
+        whichSide = 2;
+        operatorSelect = opNum;
+        document.querySelector('.total').textContent = displayTotal + " " + oper + " ";
+    
+    })
+    }
 
-})
-}
 numEvent("one", "1");
 numEvent('two', '2');
 numEvent('three','3');
@@ -48,3 +51,34 @@ operatorEvent("multiply", 3 ,"*");
 operatorEvent("divide", 4 ,"/");
 
 
+document.querySelector('.equals').addEventListener('click', function(){
+let displayNumber = Number(displayTotal)
+let displayNumber2 = Number(displayTotal2)
+
+console.log(operatorSelect)
+if(operatorSelect === 1){
+    
+    textDisplay.textContent = displayNumber + displayNumber2
+} 
+
+else if(operatorSelect === 2){
+    textDisplay.textContent = displayNumber - displayNumber2
+} 
+
+else if(operatorSelect === 3){
+    textDisplay.textContent = displayNumber * displayNumber2
+} 
+
+else if(operatorSelect === 4){
+    textDisplay.textContent = displayNumber / displayNumber2
+}
+
+})
+
+document.querySelector('.clear').addEventListener('click', function(){
+    whichside = 1;
+    textDisplay.textContent = ''; 
+    displayTotal = '';
+    displayTotal2 = '';
+    operatorSelect
+})
