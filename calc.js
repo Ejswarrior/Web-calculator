@@ -76,9 +76,11 @@ else if(operatorSelect === 4){
 })
 
 document.querySelector('.clear').addEventListener('click', function(){
-    whichside = 1;
-    textDisplay.textContent = ''; 
+    whichSide = 1;
+    textDisplay.textContent = 0; 
+   
     displayTotal = '';
+   
     displayTotal2 = '';
-    operatorSelect
+    operatorSelect = 0;
 })
